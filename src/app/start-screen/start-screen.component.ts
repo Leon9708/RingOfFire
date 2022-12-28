@@ -12,4 +12,10 @@ export class StartScreenComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  newGame(){
+    // start Game
+   
+  }
+    
 }

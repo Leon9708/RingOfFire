@@ -1,7 +1,61 @@
-.start-screen {
-    background-image: url('/assets/img/playing_cards-master/background.jpg');
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 60%;
-}
+    .background:before {
+        content: "";
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        background-image: url('/assets/img/playing_cards-master/startbackground.jpg');
+        background-size: cover;
+        filter: blur(2px);
+        transform: scale(1.01);
+        height: 100vh;
+        width: 100%;
+    }
+    
+    .background {
+        overflow: auto;
+        position: relative;
+    }
+    
+    .place_startcreen {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .startscreen {
+        width: 55rem;
+        height: 30rem;
+        max-height: 30rem;
+        background-image: radial-gradient(rgb(90, 176, 90), rgb(36, 150, 36), rgb(0, 94, 0));
+        border-radius: 2rem;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .img_text {
+        padding-top: 5rem;
+    }
+    
+    .img_button {
+        transform: scale(0.2);
+    }
+    
+    button {
+        margin-top: 6rem;
+        width: 15rem;
+        height: 4rem;
+        border-radius: 2rem;
+        background-color: rgb(187, 165, 40);
+        border: none;
+        font-size: bold;
+        font-size: xx-large;
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(247, 210, 0);
+        }
+    }
