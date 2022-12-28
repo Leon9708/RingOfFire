@@ -5,7 +5,7 @@
         left: 0;
         right: 0;
         z-index: -1;
-        background-image: url('/assets/img/playing_cards-master/startbackground.jpg');
+        background-image: url('/assets/img/background_startscreen.jpg');
         background-size: cover;
         filter: blur(2px);
         transform: scale(1.01);
@@ -27,7 +27,7 @@
     
     .startscreen {
         width: 55rem;
-        height: 30rem;
+        height: 28.5rem;
         max-height: 30rem;
         background-image: radial-gradient(rgb(90, 176, 90), rgb(36, 150, 36), rgb(0, 94, 0));
         border-radius: 2rem;
@@ -42,20 +42,10 @@
     }
     
     .img_button {
-        transform: scale(0.2);
-    }
-    
-    button {
-        margin-top: 6rem;
-        width: 15rem;
-        height: 4rem;
-        border-radius: 2rem;
-        background-color: rgb(187, 165, 40);
-        border: none;
-        font-size: bold;
-        font-size: xx-large;
+        width: 25rem;
+        margin-top: 6.5rem;
         cursor: pointer;
         &:hover {
-            background-color: rgb(247, 210, 0);
+            filter: brightness(1.15);
         }
     }

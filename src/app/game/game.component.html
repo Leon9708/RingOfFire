@@ -1,1 +1,13 @@
-<p>game works!</p>
+<div class="background_game">
+    <div class="card_stack">
+        <img *ngFor="let card of [0,1,2,3]; let i = index" [ngStyle]="{'right.px': i * 3, 'bottom.px': i * 3}" src="/assets/img/cards/card_cover.png" alt="">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img (click)="takeCard()" class="top_card" src="/assets/img/cards/card_cover.png" alt="">
+            </div>
+            <div class="flip-card-back">
+                <img *ngIf="pickCardAnimation" class="pick_card top_card" src="/assets/img/cards/spade_1.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
