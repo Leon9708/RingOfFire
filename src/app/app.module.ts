@@ -10,7 +10,8 @@ import { GameComponent } from './game/game.component';
   declarations: [
     AppComponent,
     StartScreenComponent,
-    GameComponent
+    GameComponent,
+ 
   ],
   imports: [
     BrowserModule,

@@ -50,3 +50,47 @@
         transform: scale(1.1) translateX(300px) translateY(-150px) rotateZ(15deg)
     }
 }
+
+.container {
+    position: absolute;
+    left: 3rem;
+    top: 3rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.button_shuffle {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(91, 73, 54, 0.333);
+    }
+}
+
+.img_shuffle {
+    width: 4rem;
+    height: 4rem;
+}
+
+.text_shuffle {
+    font-family: casino;
+    font-size: 3rem;
+}
+
+.shuffle_card {
+    animation: shuffle_card;
+}
+
+@keyframes shuffle_card {
+    0% {}
+    20% {}
+    40% {}
+    60% {}
+    80% {}
+    100% {}
+}
