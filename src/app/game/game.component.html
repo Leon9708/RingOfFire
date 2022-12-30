@@ -6,16 +6,16 @@
                 <img (click)="takeCard()" class="top_card" src="/assets/img/cards/card_cover.png" alt="">
             </div>
             <div class="flip-card-back">
-                <img *ngIf="pickCardAnimation" class="pick_card top_card" src="/assets/img/cards/spade_1.png" alt="">
+                <img *ngIf="pickCardAnimation" class="pick_card top_card" src="/assets/img/cards/{{ currentCard }}.png" alt="">
             </div>
-            <div class="flip-card-back">
-                <img *ngIf="shuffleCardAnimation" class="shuffle_card top_card" src="/assets/img/cards/card_cover.png" alt="">
-            </div>
+            <!--   <div class="flip-card-back">
+                <img class="shuffle_card top_card" src="/assets/img/cards/card_cover.png" alt="">
+            </div> -->
         </div>
     </div>
     <div class="container">
         <p class="text_shuffle">Dont trust the dealer ?</p>
-        <button (click)="shuffleCards()" class="button_shuffle">
+        <button class="button_shuffle">
         <img class="img_shuffle" src="/assets/img/shuffle.png" alt="">
        </button>
     </div>

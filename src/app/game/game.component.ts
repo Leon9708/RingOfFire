@@ -10,7 +10,7 @@ import { Game } from 'src/models/game';
 export class GameComponent implements OnInit {
   game: Game = new Game();
   pickCardAnimation = false;
-  shuffleCardAnimation = false;
+  currentCard: string | undefined;
  
   constructor() { 
   
@@ -24,6 +24,8 @@ export class GameComponent implements OnInit {
 
   takeCard(){
     this.pickCardAnimation = true
+    this.currentCard = this.game.stack.pop();
+   
   }
 
   shuffleCards(){
