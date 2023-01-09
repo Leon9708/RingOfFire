@@ -44,6 +44,7 @@ export class GameComponent implements OnInit {
     this.StartAnimation = true;
     setTimeout(() => {
       this.StartAnimationEnd = true
-    }, 1950);
+    }, 1450
+    );
   }
 }
