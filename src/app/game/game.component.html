@@ -1,22 +1,27 @@
+<app-player *ngFor="let player of game.players; let i = index;" [name]="player" [ngStyle]="{'top.px': 100 + (i * 105)}" class="place_player">
+</app-player>
+
+
 <div class="background_game">
     <div class="card_stack">
-        <img *ngFor="let card of [0,1,2,3]; let i = index" [ngStyle]="{'right.px': i * 3, 'bottom.px': i * 3}" src="/assets/img/cards/card_cover.png" alt="">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <img (click)="takeCard()" class="top_card" src="/assets/img/cards/card_cover.png" alt="">
-            </div>
-            <div class="flip-card-back">
-                <img *ngIf="pickCardAnimation" class="pick_card top_card" src="/assets/img/cards/{{ currentCard }}.png" alt="">
-            </div>
-            <!--   <div class="flip-card-back">
-                <img class="shuffle_card top_card" src="/assets/img/cards/card_cover.png" alt="">
-            </div> -->
+        <!-- stack : newCards -->
+        <img *ngFor="let card of [0,1,2,3]; let i = index" [ngStyle]="{'right.px': i * 3, 'bottom.px': i * 3}" [ngClass]="{'d_none': !StartAnimationEnd}" src="/assets/img/cards/card_cover.png" alt="">
+        <img [ngClass]="{'d_none': !StartAnimationEnd}" (click)="takeCard()" class="top_card" src="/assets/img/cards/card_cover.png" alt="">
+        <!-- stack : playedCards -->
+        <img class="played_card" *ngFor="let playedcard of game.playedCards; let i = index" src="/assets/img/cards/{{ playedcard }}.png " alt="">
+        <!-- card Animation -->
+        <img *ngIf="pickCardAnimation" class="pick_card top_card" src="/assets/img/cards/{{ currentCard }}.png" alt="">
+        <div *ngIf="StartAnimation" [ngClass]="{'d_none': StartAnimationEnd}" class="place_circle ">
+            <img class="circle_card circle_animation" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game.stack; let i = index" [style.top]="150 - 250 * Math.sin((i / game.stack.length) * 2 * Math.PI) + 'px'" [style.left]="150 - 250 * Math.cos((i / game.stack.length) * 2 * Math.PI) + 'px'">
+        </div>
+        <div *ngIf="!StartAnimation" class="place_circle">
+            <img class="circle_card" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game.stack; let i = index" [style.top]="150 - 250 * Math.sin((i / game.stack.length) * 2 * Math.PI) + 'px'" [style.left]="150 - 250 * Math.cos((i / game.stack.length) * 2 * Math.PI) + 'px'">
         </div>
     </div>
     <div class="container">
-        <p class="text_shuffle">Dont trust the dealer ?</p>
-        <button class="button_shuffle">
-        <img class="img_shuffle" src="/assets/img/shuffle.png" alt="">
+        <p class="text_shuffle">Shuffle</p>
+        <button (click)="shuffleCards()" class="button_shuffle">
+        <img class="img_shuffle" src="/assets/img/shuffle.png " alt=" ">
        </button>
     </div>
 </div>

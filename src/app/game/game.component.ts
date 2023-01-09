@@ -10,31 +10,40 @@ import { Game } from 'src/models/game';
 export class GameComponent implements OnInit {
   game: Game = new Game();
   pickCardAnimation = false;
+  StartAnimation = false;
+  StartAnimationEnd = false;
   currentCard: string | undefined;
+  Math:any = Math;;
+
  
-  constructor() { 
-  
+  constructor() {   
+    
   }
 
   ngOnInit(): void {
+    setInterval(() => {
+      
+    }, 3000);
   this.game
   console.log(this.game)
   }
 
 
+
   takeCard(){
     this.pickCardAnimation = true
     this.currentCard = this.game.stack.pop();
-   
+   setTimeout(() => {
+    this.game.playedCards.push(this.currentCard!) 
+    this.pickCardAnimation = false
+   }, 2000);
+
   }
 
   shuffleCards(){
-    
-    for (let i = 0; i < this.game.stack.length; i++) {
-        const card = this.game.stack[i];
-      
-        
-    }
-
+    this.StartAnimation = true;
+    setTimeout(() => {
+      this.StartAnimationEnd = true
+    }, 1950);
   }
 }
