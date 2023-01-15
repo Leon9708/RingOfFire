@@ -8,11 +8,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    p {
+        margin: 0 !important;
+    }
 }
 
-.place_player {
+.players {
     position: absolute;
+    top: 6rem;
     right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
 }
 
 .card_stack {
@@ -63,16 +72,21 @@
     }
 }
 
-.container {
+.container_content_shuffle {
     position: absolute;
     left: 3rem;
     top: 3rem;
     width: fit-content;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.75rem;
     p {
-        font-size: 2.5rem;
+        font-size: 3rem;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
     }
 }
 
@@ -85,6 +99,7 @@
     &:hover {
         background-color: rgba(91, 73, 54, 0.333);
     }
+    margin-left: 0.25rem;
 }
 
 .img_shuffle {
@@ -129,8 +144,18 @@
     display: none;
 }
 
-.button_add {
+.container_content_bottom {
     position: absolute;
-    right: 6rem;
+    width: 85%;
     bottom: 3.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 3rem;
+    align-items: center;
+}
+
+.button_add {}
+
+.instructions {
+    flex: 1;
 }

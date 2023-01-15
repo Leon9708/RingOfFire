@@ -1,0 +1,6 @@
+<mat-card class="field">
+    <mat-card-title>{{ title }} </mat-card-title>
+    <mat-card-content> {{ description }} </mat-card-content>
+    <mat-card-title *ngIf="!valueCard">Pick a card</mat-card-title>
+    <mat-card-content *ngIf="!valueCard"> to start the ring of fire </mat-card-content>
+</mat-card>
