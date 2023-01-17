@@ -160,6 +160,22 @@
 
 .place_info {
     position: absolute;
-    left: 2rem;
-    top: 4rem;
+    left: 3rem;
+    top: 3.5rem;
+}
+
+.btn_info {
+    border: none;
+    background-color: transparent;
+}
+
+.icon_info {
+    color: white;
+    transform: scale(1.75);
+}
+
+.place_icon_btn {
+    position: absolute;
+    right: 2rem;
+    top: 3rem;
 }

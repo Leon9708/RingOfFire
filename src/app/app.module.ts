@@ -23,6 +23,7 @@ import { BottomPopUpComponent } from './bottom-pop-up/bottom-pop-up.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatListModule } from '@angular/material/list';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,6 @@ import { MatListModule } from '@angular/material/list';
     MatBottomSheetModule,
     MatTooltipModule,
     MatListModule,
-  
   ],
   providers: [],
   bootstrap: [AppComponent]

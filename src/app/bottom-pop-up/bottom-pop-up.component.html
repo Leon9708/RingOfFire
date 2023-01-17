@@ -1,6 +1,10 @@
 <mat-nav-list class="pop_up">
     <h2>Question</h2>
-    <p>{{ question }}</p>
-    <button mat-raised-button>Answer</button>
-    <p>{{ answer }}</p>
+    <p>
+        {{ data.question }}
+    </p>
+    <button *ngIf="!showAnswer" (click)="displayAnswer()" mat-raised-button>Answer</button>
+    <p *ngIf="showAnswer">
+        {{ data.answer }}
+    </p>
 </mat-nav-list>

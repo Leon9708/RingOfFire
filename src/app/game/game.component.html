@@ -1,11 +1,12 @@
 <div class="background_game">
     <!-- game info -->
-    <app-info class="place_info"></app-info>
+    <app-info *ngIf="StartAnimationEnd" class="place_info"></app-info>
     <!-- Added Players -->
     <div class="players">
         <app-player *ngFor="let player of game.players; let i = index;" [name]="player" [playerActive]="i == game.currentPlayer">
         </app-player>
     </div>
+    <app-change-icon class="place_icon_btn"></app-change-icon>
     <div class="card_stack">
         <!-- stack : newCards -->
         <img *ngFor="let card of [0,1,2,3]; let i = index" [ngStyle]="{'right.px': i * 3, 'bottom.px': i * 3}" [ngClass]="{'d_none': !StartAnimationEnd}" src="/assets/img/cards/card_cover.png" alt="">
@@ -35,7 +36,7 @@
     <!-- game instructions -->
     <div class="container_content_bottom">
         <app-instructions [card]="currentCard" *ngIf="StartAnimationEnd" class="instructions"></app-instructions>
-        <button *ngIf="!StartAnimation" (click)="openDialog()" mat-fab color="primary">
+        <button matTooltip="add two players to start the game" *ngIf="!StartAnimation" (click)="openDialog()" mat-fab color="primary">
             <mat-icon>add</mat-icon>
         </button>
     </div>

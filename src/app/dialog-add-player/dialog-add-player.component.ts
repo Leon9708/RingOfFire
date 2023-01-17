@@ -12,9 +12,6 @@ constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>){
 
 }
 
-ngOnInit():void{
- 
-}
 onNoClick(){
   this.dialogRef.close();
 }
