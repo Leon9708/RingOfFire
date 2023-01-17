@@ -16,6 +16,12 @@ import { FormsModule } from '@angular/forms';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { ChangeIconComponent } from './change-icon/change-icon.component';
+import { InfoComponent } from './info/info.component';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { BottomPopUpComponent } from './bottom-pop-up/bottom-pop-up.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -25,6 +31,9 @@ import { CommonModule } from '@angular/common';
     PlayerComponent,
     DialogAddPlayerComponent,
     InstructionsComponent,
+    ChangeIconComponent,
+    InfoComponent,
+    BottomPopUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +45,11 @@ import { CommonModule } from '@angular/common';
     MatDialogModule,
     FormsModule,
     MatCardModule,
-    CommonModule
+    CommonModule,
+    MatBottomSheetModule,
+    MatTooltipModule,
+    MatListModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

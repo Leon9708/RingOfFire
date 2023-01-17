@@ -19,7 +19,7 @@ export class GameComponent implements OnInit {
   currentCard: string | undefined;
   Math:any = Math;
   checkTotalPlayers:boolean = false;
- 
+
   constructor(public dialog: MatDialog) {   
     
   }
@@ -59,11 +59,16 @@ export class GameComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((name:string)=> {
       console.log('The dialog was closed', name);
+      if (name && name.length >= 3) {
         this.game.players.push(name)
-        if (this.game.players.length   >= 2 ) {
-          this.checkTotalPlayers = true;
-        }
+      }
+      if (this.game.players.length   >= 2 ) {
+        this.checkTotalPlayers = true;
+      }
     });
   } 
+
+
+
 }
 

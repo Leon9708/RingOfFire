@@ -21,6 +21,6 @@ export class Game{
           const j = Math.floor(Math.random() * (i + 1));
           [this.stack[i], this.stack[j]] = [this.stack[j], this.stack[i]];
         }
-      }
+    }
 }
 

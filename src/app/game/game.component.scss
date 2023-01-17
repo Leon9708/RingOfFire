@@ -154,8 +154,12 @@
     align-items: center;
 }
 
-.button_add {}
-
 .instructions {
     flex: 1;
+}
+
+.place_info {
+    position: absolute;
+    left: 2rem;
+    top: 4rem;
 }
