@@ -22,6 +22,10 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { BottomPopUpComponent } from './bottom-pop-up/bottom-pop-up.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatListModule } from '@angular/material/list';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 
 
 @NgModule({
@@ -50,6 +54,10 @@ import { MatListModule } from '@angular/material/list';
     MatBottomSheetModule,
     MatTooltipModule,
     MatListModule,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
