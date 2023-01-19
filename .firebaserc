@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "the-ring-of-fire----22": {
+      "hosting": {
+        "ringooffire": [
+          "the-ring-of-fire----22"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "the-ring-of-fire----22"
+  }
+}
