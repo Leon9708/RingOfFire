@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-
+import { Firestore, collectionData, collection, setDoc, doc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { RingOfFirestoreService } from "../core/ring-of-firestore.service";
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -13,20 +14,33 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat
 
 export class GameComponent implements OnInit {
   
-  game: Game = new Game();
+  game!: Game;
   pickCardAnimation = false;
   StartAnimation = false;
   StartAnimationEnd = false;
   currentCard: string | undefined;
   Math:any = Math;
   checkTotalPlayers:boolean = false;
-  db: AngularFirestore
-  game: AngularFirestoreDocument<any>
-  constructor(private db: AngularFirestore,public dialog: MatDialog) { }
-  
 
+  constructor(public dialog: MatDialog,private fireservice:RingOfFirestoreService) {
+   
+  }
   ngOnInit(): void {
-    this.game
+    this.loadData();
+    this.newGame();
+
+  }
+
+  loadData() {
+    this.fireservice.getAll().snapshotChanges().subscribe(game => {
+      console.log('game', game)
+    });
+    
+  }
+
+
+  newGame(){
+    this.game = new Game()
   }
 
   takeCard(){

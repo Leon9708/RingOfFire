@@ -16,6 +16,16 @@ export class Game{
         this.shuffleStack();
     }
 
+    public toJson(){
+        return{
+        players: this.players,
+        stack: this.stack,
+        playedcards:this.playedCards,
+        currentPlayer: this.currentPlayer,
+        elements:this.elements
+    }
+}
+
     shuffleStack(): void {
         for (let i = this.stack.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
