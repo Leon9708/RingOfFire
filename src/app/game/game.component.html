@@ -17,7 +17,7 @@
         <img *ngIf="game?.pickCardAnimation" class="pick_card top_card" src="/assets/img/cards/{{ game?.currentCard }}.png" alt="">
         <!-- shuffle Animation -->
         <div *ngIf="game?.StartAnimation" [ngClass]="{'d_none': game?.StartAnimationEnd}" class="place_circle ">
-            <img class="circle_card circle_animation" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="150 - 250 *  Math.sin((i / game?.stack.length)  * 2 * game?.Math.PI) + 'px'" [style.left]="150 - 250 * game?.Math.cos((i / game?.stack.length) * 2 * game?.Math.PI) + 'px'">
+            <img class="circle_card circle_animation" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="150 - 250 *  game?.Math.sin((i / game?.stack.length)  * 2 * game?.Math.PI) + 'px'" [style.left]="150 - 250 * game?.Math.cos((i / game?.stack.length) * 2 * game?.Math.PI) + 'px'">
         </div>
         <div *ngIf="!game?.StartAnimation" class="place_circle">
             <img class="circle_card" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="150 - 250 * game?.Math.sin((i / game?.stack.length) * 2 * game?.Math.PI) + 'px'" [style.left]="150 - 250 * game?.Math.cos((i / game?.stack.length) * 2 * game?.Math.PI) + 'px'">
