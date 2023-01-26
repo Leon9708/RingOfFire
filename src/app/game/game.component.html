@@ -1,30 +1,30 @@
 <div class="background_game">
     <!-- game info -->
-    <app-info *ngIf="StartAnimationEnd" class="place_info"></app-info>
+    <app-info *ngIf="game?.StartAnimationEnd" class="place_info"></app-info>
     <!-- Added Players -->
     <div class="players">
-        <app-player *ngFor="let player of game.players; let i = index;" [name]="player" [playerActive]="i == game.currentPlayer">
+        <app-player *ngFor="let player of game?.players; let i = index;" [name]="player" [playerActive]="i == game?.currentPlayer">
         </app-player>
     </div>
     <app-change-icon class="place_icon_btn"></app-change-icon>
     <div class="card_stack">
         <!-- stack : newCards -->
-        <img *ngFor="let card of [0,1,2,3]; let i = index" [ngStyle]="{'right.px': i * 3, 'bottom.px': i * 3}" [ngClass]="{'d_none': !StartAnimationEnd}" src="/assets/img/cards/card_cover.png" alt="">
-        <img [ngClass]="{'d_none': !StartAnimationEnd}" (click)="takeCard()" class="top_card" src="/assets/img/cards/card_cover.png" alt="">
+        <img *ngFor="let card of [0,1,2,3]; let i = index" [ngStyle]="{'right.px': i * 3, 'bottom.px': i * 3}" [ngClass]="{'d_none': !game?.StartAnimationEnd}" src="/assets/img/cards/card_cover.png" alt="">
+        <img [ngClass]="{'d_none': !game?.StartAnimationEnd}" (click)="takeCard()" class="top_card" src="/assets/img/cards/card_cover.png" alt="">
         <!-- stack : playedCards -->
-        <img class="played_card" *ngFor="let playedcard of game.playedCards; let i = index" src="/assets/img/cards/{{ playedcard }}.png " alt="">
+        <img class="played_card" *ngFor="let playedcard of game?.playedCards; let i = index" src="/assets/img/cards/{{ playedcard }}.png " alt="">
         <!-- take Card Animation -->
-        <img *ngIf="pickCardAnimation" class="pick_card top_card" src="/assets/img/cards/{{ currentCard }}.png" alt="">
+        <img *ngIf="game?.pickCardAnimation" class="pick_card top_card" src="/assets/img/cards/{{ game?.currentCard }}.png" alt="">
         <!-- shuffle Animation -->
-        <div *ngIf="StartAnimation" [ngClass]="{'d_none': StartAnimationEnd}" class="place_circle ">
-            <img class="circle_card circle_animation" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game.stack; let i = index" [style.top]="150 - 250 * Math.sin((i / game.stack.length) * 2 * Math.PI) + 'px'" [style.left]="150 - 250 * Math.cos((i / game.stack.length) * 2 * Math.PI) + 'px'">
+        <div *ngIf="game?.StartAnimation" [ngClass]="{'d_none': game?.StartAnimationEnd}" class="place_circle ">
+            <img class="circle_card circle_animation" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="150 - 250 *  Math.sin((i / game?.stack.length)  * 2 * game?.Math.PI) + 'px'" [style.left]="150 - 250 * game?.Math.cos((i / game?.stack.length) * 2 * game?.Math.PI) + 'px'">
         </div>
-        <div *ngIf="!StartAnimation" class="place_circle">
-            <img class="circle_card" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game.stack; let i = index" [style.top]="150 - 250 * Math.sin((i / game.stack.length) * 2 * Math.PI) + 'px'" [style.left]="150 - 250 * Math.cos((i / game.stack.length) * 2 * Math.PI) + 'px'">
+        <div *ngIf="!game?.StartAnimation" class="place_circle">
+            <img class="circle_card" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="150 - 250 * game?.Math.sin((i / game?.stack.length) * 2 * game?.Math.PI) + 'px'" [style.left]="150 - 250 * game?.Math.cos((i / game?.stack.length) * 2 * game?.Math.PI) + 'px'">
         </div>
     </div>
     <!-- shuffle Buttons -->
-    <div class="container_content_shuffle" *ngIf="checkTotalPlayers && !StartAnimationEnd">
+    <div class="container_content_shuffle" *ngIf="game?.checkTotalPlayers && !game?.StartAnimationEnd">
         <div>
             <p class="text_shuffle">Shuffle</p>
             <p class="text_shuffle">to start</p>
@@ -35,8 +35,8 @@
     </div>
     <!-- game instructions -->
     <div class="container_content_bottom">
-        <app-instructions [card]="currentCard" *ngIf="StartAnimationEnd" class="instructions"></app-instructions>
-        <button matTooltip="add two players to start the game" *ngIf="!StartAnimation" (click)="openDialog()" mat-fab color="primary">
+        <app-instructions [card]="game?.currentCard" *ngIf="game?.StartAnimationEnd" class="instructions"></app-instructions>
+        <button matTooltip="add two players to start the game" *ngIf="!game?.StartAnimation" (click)="openDialog()" mat-fab color="primary">
             <mat-icon>add</mat-icon>
         </button>
     </div>

@@ -2,64 +2,89 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
-import { Firestore, collectionData, collection, setDoc, doc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Firestore, collectionData, collection, setDoc, doc, DocumentData, getDoc } from '@angular/fire/firestore';
+import { Observable, take } from 'rxjs';
 import { RingOfFirestoreService } from "../core/ring-of-firestore.service";
+import { ActivatedRoute } from '@angular/router';
+import { MathService } from '../core/math.service';
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
-
+  providers: [MathService]
 })
 
 export class GameComponent implements OnInit {
+  game: Game = new Game();
+  gamesId:any;
+  gameObserved$: Observable<any>;
   
-  game!: Game;
-  pickCardAnimation = false;
-  StartAnimation = false;
-  StartAnimationEnd = false;
-  currentCard: string | undefined;
-  Math:any = Math;
-  checkTotalPlayers:boolean = false;
-
-  constructor(public dialog: MatDialog,private fireservice:RingOfFirestoreService) {
-   
+  constructor(
+  private math: MathService,
+  private route: ActivatedRoute,
+  public dialog: MatDialog,
+  private fireservice:RingOfFirestoreService) {
   }
   ngOnInit(): void {
-    this.loadData();
-    this.newGame();
-
+    this.fireservice.getALL().valueChanges().subscribe(data =>{
+      console.log('data',data)
+    })
+    this.loadGame();
   }
 
-  loadData() {
-    this.fireservice.getAll().snapshotChanges().subscribe(game => {
-      console.log('game', game)
+  loadGame() {
+    this.route.params.subscribe((params) => { 
+      this.gamesId = params['id'];
+      this.gameObserved$ = this.fireservice.get(this.gamesId).valueChanges();
+      console.log('the id', this.gamesId )
+      this.gameObserved$.subscribe((game: any) => {
+          console.log(game);
+          this.game.currentPlayer = game.currentPlayer;
+          this.game.playedCards = game.playedCards;
+          this.game.stack = game.stack;
+          this.game.players = game.players;
+          this.game.StartAnimation = game.StartAnimation; 
+          this.game.StartAnimationEnd = game.StartAnimationEnd; 
+          this.game.checkTotalPlayers = game.checkTotalPlayers; 
+          this.game.currentCard = game.currentCard;
+          this.game.pickCardAnimation = game.pickCardAnimation; 
+          this.game.Math = game.Math;
+      });
     });
-    
   }
 
-
-  newGame(){
-    this.game = new Game()
+  saveGame(){
+    return this.fireservice.update(this.gamesId, this.game);  
   }
+  
+
+  
+/*   deleteTutorial(): void {
+    if (this.game.id) {
+      this.fireservice.delete(this.game.id)
+        .then(() => {
+          console.log('delete successfully!');});
+    }
+  } */
 
   takeCard(){
-    this.pickCardAnimation = true
-    this.currentCard = this.game.stack.pop();
+    this.game.pickCardAnimation = true
+    this.game.currentCard = this.game.stack.pop();
    setTimeout(() => {
-    this.game.playedCards.push(this.currentCard!) 
-    this.pickCardAnimation = false
+    this.game.playedCards.push(this.game.currentCard!) 
+    this.game.pickCardAnimation = false
    }, 2000);
     this.selectPlayer()
+    this.saveGame();
   }
 
   shuffleCards(){
-    this.StartAnimation = true;
+    this.game.StartAnimation = true;
     setTimeout(() => {
-      this.StartAnimationEnd = true
-    }, 1450
-    );
+      this.game.StartAnimationEnd = true
+    }, 1450);
   }
+
 
   selectPlayer(){
     if (this.game.players.length - 1  == this.game.currentPlayer) {
@@ -67,6 +92,7 @@ export class GameComponent implements OnInit {
      }else{
       this.game.currentPlayer++;
      }
+     this.saveGame();
   }
 
   openDialog(): void {
@@ -78,8 +104,9 @@ export class GameComponent implements OnInit {
         this.game.players.push(name)
       }
       if (this.game.players.length   >= 2 ) {
-        this.checkTotalPlayers = true;
+        this.game.checkTotalPlayers = true;
       }
+      this.saveGame();
     });
   } 
 

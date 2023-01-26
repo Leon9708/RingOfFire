@@ -6,9 +6,23 @@
           "the-ring-of-fire----22"
         ]
       }
+    },
+    "todolist----new": {
+      "hosting": {
+        "ringooffire": [
+          "todolist----new"
+        ]
+      }
+    },
+    "ringoffirestore": {
+      "hosting": {
+        "ringooffire": [
+          "ringoffirestore"
+        ]
+      }
     }
   },
   "projects": {
-    "default": "the-ring-of-fire----22"
+    "default": "ringoffirestore"
   }
 }

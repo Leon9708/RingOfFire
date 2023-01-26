@@ -59,10 +59,11 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     MatBottomSheetModule,
     MatTooltipModule,
     MatListModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, 
+/*     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()) */
   ],
   providers: [],
   bootstrap: [AppComponent]
