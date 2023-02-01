@@ -6,7 +6,13 @@
         <input type="text" minlength="3" matInput [(ngModel)]="name">
     </mat-form-field>
 </div>
+<p>choose an image to move on</p>
+<mat-button-toggle-group [(ngModel)]="chosenImage">
+    <mat-button-toggle value="{{image}}" *ngFor="let image of images">
+        <img class="choose_image" [src]="image">
+    </mat-button-toggle>
+</mat-button-toggle-group>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [disabled]="name.length <= 2" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
+    <button mat-button [disabled]="!chosenImage || name.length <= 2" [mat-dialog-close]="{name: name, chosenImage: chosenImage}" cdkFocusInitial>Ok</button>
 </div>

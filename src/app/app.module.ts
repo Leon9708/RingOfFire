@@ -31,6 +31,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { ImgToDialogComponent } from './img-to-dialog/img-to-dialog.component';
 
 
 @NgModule({
@@ -44,6 +46,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     ChangeIconComponent,
     InfoComponent,
     BottomPopUpComponent,
+    ImgToDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     MatListModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, 
+    MatButtonToggleModule
 /*     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()) */

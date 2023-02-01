@@ -9,7 +9,9 @@ export class Game{
     public StartAnimationEnd = false;
     public currentCard: string = '';
     public checkTotalPlayers:boolean = false;
-    public Math:Math = Math;
+    public clicked:boolean = false;
+    public chosenImages:string[] = [];
+
  
 
     constructor(){
@@ -40,7 +42,8 @@ export class Game{
             StartAnimationEnd:this.StartAnimationEnd,
             currentCard: this.currentCard,
             checkTotalPlayers:this.checkTotalPlayers,
-            Math:this.Math
+            clicked: this.clicked,
+            chosenImages: this.chosenImages
         }
     }
  

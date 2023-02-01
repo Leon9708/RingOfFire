@@ -6,21 +6,19 @@ import { Firestore, collectionData, collection, setDoc, doc, DocumentData, getDo
 import { Observable, take } from 'rxjs';
 import { RingOfFirestoreService } from "../core/ring-of-firestore.service";
 import { ActivatedRoute } from '@angular/router';
-import { MathService } from '../core/math.service';
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
-  providers: [MathService]
 })
 
 export class GameComponent implements OnInit {
   game: Game = new Game();
   gamesId:any;
   gameObserved$: Observable<any>;
+  Math: Math = Math
   
   constructor(
-  private math: MathService,
   private route: ActivatedRoute,
   public dialog: MatDialog,
   private fireservice:RingOfFirestoreService) {
@@ -48,7 +46,8 @@ export class GameComponent implements OnInit {
           this.game.checkTotalPlayers = game.checkTotalPlayers; 
           this.game.currentCard = game.currentCard;
           this.game.pickCardAnimation = game.pickCardAnimation; 
-          this.game.Math = game.Math;
+          this.game.clicked = game.clicked;
+          this.game.chosenImages = game.chosenImages
       });
     });
   }
@@ -68,11 +67,15 @@ export class GameComponent implements OnInit {
   } */
 
   takeCard(){
+    if(this.game.clicked) return;
+    this.game.clicked = true;
     this.game.pickCardAnimation = true
     this.game.currentCard = this.game.stack.pop();
    setTimeout(() => {
     this.game.playedCards.push(this.game.currentCard!) 
     this.game.pickCardAnimation = false
+    this.game.clicked = false 
+    this.saveGame(); 
    }, 2000);
     this.selectPlayer()
     this.saveGame();
@@ -82,7 +85,9 @@ export class GameComponent implements OnInit {
     this.game.StartAnimation = true;
     setTimeout(() => {
       this.game.StartAnimationEnd = true
+      this.saveGame();  
     }, 1450);
+    this.saveGame();  
   }
 
 
@@ -98,16 +103,21 @@ export class GameComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
-    dialogRef.afterClosed().subscribe((name:string)=> {
-      console.log('The dialog was closed', name);
-      if (name && name.length >= 3) {
-        this.game.players.push(name)
+    dialogRef.afterClosed().subscribe(result => {
+      const { name, chosenImage } = result;
+      console.log('The dialog was closed', name, chosenImage);
+      if(chosenImage){
+        this.game.chosenImages.push(chosenImage)
       }
-      if (this.game.players.length   >= 2 ) {
+      if (name && name.length >= 3) {
+        this.game.players.push(name);
+      }
+      if (this.game.players.length >= 2) {
         this.game.checkTotalPlayers = true;
       }
       this.saveGame();
     });
+    
   } 
 
 }
