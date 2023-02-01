@@ -1,7 +1,7 @@
 .pop_up {
     height: 10rem;
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
     p {
         font-size: 1.25rem;
@@ -9,5 +9,13 @@
     button {
         position: absolute;
         bottom: 2.5rem;
+    }
+    @media (max-width:550px) {
+        h2 {
+            font-size: 1.2rem;
+        }
+        p {
+            font-size: 1.25rem;
+        }
     }
 }

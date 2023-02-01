@@ -1,0 +1,97 @@
+.place_circle {
+    position: relative;
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    top: -15.5rem;
+    left: -17rem;
+    @media (max-width: 1050px) {
+        display: none;
+    }
+}
+
+.place_circle_small {
+    display: none;
+    position: relative;
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    top: -10rem;
+    left: -9rem;
+    @media (max-width: 1050px) {
+        display: unset;
+    }
+    @media (max-width: 550px) {
+        display: none;
+    }
+}
+
+.circle_card {
+    position: absolute;
+    width: 7.5rem;
+    @media (max-width: 1050px) {
+        width: 5.5rem;
+    }
+    @media (max-width: 550px) {
+        width: 4.5rem;
+    }
+}
+
+.circle_animation {
+    animation: AnimationStart 1.5s ease-out;
+}
+
+@keyframes AnimationStart {
+    0% {
+        transform: rotateZ(-180deg);
+    }
+    100% {
+        top: 9rem;
+        left: 9.25rem;
+    }
+}
+
+.circle_animation_small {
+    animation: AnimationStartSmall 1.5s ease-out;
+}
+
+@keyframes AnimationStartSmall {
+    0% {
+        transform: rotateZ(-180deg);
+    }
+    100% {
+        top: 3.5rem;
+        left: 3.5rem;
+    }
+}
+
+.d_none {
+    display: none !important;
+}
+
+.circle_animation_smaller {
+    animation: AnimationStartSmaller 1.5s ease-out;
+}
+
+@keyframes AnimationStartSmaller {
+    0% {
+        transform: rotateZ(-180deg);
+    }
+    100% {
+        top: 3.4rem;
+        left: 2.2rem;
+    }
+}
+
+.place_circle_smaller {
+    display: none;
+    position: relative;
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    top: -10rem;
+    left: -5.5rem;
+    @media (max-width: 550px) {
+        display: unset;
+    }
+}

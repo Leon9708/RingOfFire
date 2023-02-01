@@ -1,0 +1,18 @@
+<div *ngIf="game?.StartAnimation" [ngClass]="{'d_none': game?.StartAnimationEnd}" class="place_circle">
+    <img class="circle_card circle_animation" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="150 - 250 *  Math.sin((i / game?.stack.length)  * 2 *Math.PI) + 'px'" [style.left]="150 - 250 * Math.cos((i / game?.stack.length) * 2 * Math.PI) + 'px'">
+</div>
+<div *ngIf="!game?.StartAnimation" class="place_circle">
+    <img class="circle_card" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="150 - 250 * Math.sin((i / game?.stack.length) * 2 * Math.PI) + 'px'" [style.left]="150 - 250 * Math.cos((i / game?.stack.length) * 2 * Math.PI) + 'px'">
+</div>
+<div *ngIf="game?.StartAnimation" [ngClass]="{'d_none': game?.StartAnimationEnd}" class="place_circle_small">
+    <img class="circle_card circle_animation_small" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="100 - 175 *  Math.sin((i / game?.stack.length)  * 2 *Math.PI) + 'px'" [style.left]="100 - 175 * Math.cos((i / game?.stack.length) * 2 * Math.PI) + 'px'">
+</div>
+<div *ngIf="!game?.StartAnimation" class="place_circle_small">
+    <img class="circle_card" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="100 - 175 * Math.sin((i / game?.stack.length) * 2 * Math.PI) + 'px'" [style.left]="100 - 175 * Math.cos((i / game?.stack.length) * 2 * Math.PI) + 'px'">
+</div>
+<div *ngIf="game?.StartAnimation" [ngClass]="{'d_none': game?.StartAnimationEnd}" class="place_circle_smaller">
+    <img class="circle_card circle_animation_smaller" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="50 - 125 *  Math.sin((i / game?.stack.length)  * 2 *Math.PI) + 'px'" [style.left]="50 - 125 * Math.cos((i / game?.stack.length) * 2 * Math.PI) + 'px'">
+</div>
+<div *ngIf="!game?.StartAnimation" class="place_circle_smaller">
+    <img class="circle_card" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="50 - 125 * Math.sin((i / game?.stack.length) * 2 * Math.PI) + 'px'" [style.left]="50 - 125 * Math.cos((i / game?.stack.length) * 2 * Math.PI) + 'px'">
+</div>

@@ -16,7 +16,7 @@ export class InstructionsComponent {
     { title: 'Chicks', description: 'All girls drink.' },
     { title: 'Heaven', description: 'Put your hands up! The last player drinks!' },
     { title: 'Mate', description: 'Pick a mate. Your mate must always drink when you drink and the other way around.' },
-    { title: 'Thumbmaster', description: '' },
+    { title: 'Thumbmaster', description: 'Thumb on the TABLE!!! last one drinks.' },
     { title: 'Men', description: 'All men drink.' },
     { title: 'Quizmaster', description: ' the quizmaster can questions during the game (as long as he is the quizmaster and until the next person has drawn a 10) to the round or to certain persons, each person who answers him must begin his sentence with "You are the quizmaster", if the answering person forgets this he must drink one.' },
     { title: 'Never have I ever...', description: 'Say something you never did. Everyone who did it has to drink.' },

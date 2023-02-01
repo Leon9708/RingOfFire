@@ -11,8 +11,12 @@ export class PlayerComponent implements OnInit {
 @Input() playerActive:boolean = false;
 @Input() chosenImage:string;
   constructor() { }
+  clickedPlayer: boolean = false;
 
   ngOnInit(): void {  
   }
 
+  clickPlayer(){
+    this.clickedPlayer = !this.clickedPlayer
+  }
 }

@@ -3,30 +3,17 @@
     <app-info *ngIf="game?.StartAnimationEnd" class="place_info"></app-info>
     <!-- Added Players -->
     <div class="players">
-        <app-player [chosenImage]="game?.chosenImages[i]" *ngFor="let player of game?.players; let i = index;" [name]="player" [playerActive]="i == game?.currentPlayer">
+        <app-player style="z-index: 1;" [chosenImage]="game?.chosenImages[i]" *ngFor="let player of game?.players; let i = index;" [name]="player" [playerActive]="i == game?.currentPlayer">
         </app-player>
     </div>
     <app-change-icon class="place_icon_btn"></app-change-icon>
     <div class="card_stack">
-        <!-- stack : newCards -->
-        <img *ngFor="let card of [0,1,2,3]; let i = index" [ngStyle]="{'right.px': i * 3, 'bottom.px': i * 3}" [ngClass]="{'d_none': !game?.StartAnimationEnd}" src="/assets/img/cards/card_cover.png" alt="">
-        <button [disabled]="game.clicked" [ngClass]="{'d_none': !game?.StartAnimationEnd}" (click)="takeCard()">
-            <img  class="top_card" src="/assets/img/cards/card_cover.png" alt="">
-        </button>
-        <!-- stack : playedCards -->
-        <img class="played_card" *ngFor="let playedcard of game?.playedCards; let i = index" src="/assets/img/cards/{{ playedcard }}.png " alt="">
-        <!-- take Card Animation -->
-        <img *ngIf="game?.pickCardAnimation" class="pick_card top_card" src="/assets/img/cards/{{ game?.currentCard }}.png" alt="">
+        <app-card-stack [game]="game"></app-card-stack>
         <!-- shuffle Animation -->
-        <div *ngIf="game?.StartAnimation" [ngClass]="{'d_none': game?.StartAnimationEnd}" class="place_circle ">
-            <img class="circle_card circle_animation" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="150 - 250 *  Math.sin((i / game?.stack.length)  * 2 *Math.PI) + 'px'" [style.left]="150 - 250 * Math.cos((i / game?.stack.length) * 2 * Math.PI) + 'px'">
-        </div>
-        <div *ngIf="!game?.StartAnimation" class="place_circle">
-            <img class="circle_card" src="/assets/img/cards/card_cover.png" *ngFor="let cicleCard of game?.stack; let i = index" [style.top]="150 - 250 * Math.sin((i / game?.stack.length) * 2 * Math.PI) + 'px'" [style.left]="150 - 250 * Math.cos((i / game?.stack.length) * 2 * Math.PI) + 'px'">
-        </div>
+        <app-shuffle-cards [game]="game"></app-shuffle-cards>
     </div>
     <!-- shuffle Buttons -->
-    <div class="container_content_shuffle" *ngIf="game?.checkTotalPlayers && !game?.StartAnimationEnd">
+    <div class="container_content_shuffle" *ngIf="game?.checkTotalPlayers && !game?.StartAnimation">
         <div>
             <p class="text_shuffle">Shuffle</p>
             <p class="text_shuffle">to start</p>
@@ -37,9 +24,11 @@
     </div>
     <!-- game instructions -->
     <div class="container_content_bottom">
-        <app-instructions [card]="game?.currentCard" *ngIf="game?.StartAnimationEnd" class="instructions"></app-instructions>
-        <button matTooltip="add two players to start the game" *ngIf="!game?.StartAnimation" (click)="openDialog()" mat-fab color="primary">
+        <app-instructions [card]="game?.currentCard" *ngIf="game?.StartAnimation" class="instructions"></app-instructions>
+        <button class="btn_add_player" matTooltip="add two players to start the game" *ngIf="!game?.StartAnimation" (click)="openDialog()" mat-fab color="primary">
             <mat-icon>add</mat-icon>
         </button>
     </div>
+    <!-- GameOver -->
+    <app-game-over [game]="game"></app-game-over>
 </div>

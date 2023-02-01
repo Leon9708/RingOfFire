@@ -1,31 +1,75 @@
-    .player {
+.player {
+    cursor: pointer;
+    width: 13rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    background-color: grey;
+    @media(max-width: 1050px) {
+        width: 10rem;
+        border-top-left-radius: 0rem;
+        border-bottom-left-radius: 0rem;
+        border-top-right-radius: 3rem;
+        border-bottom-right-radius: 3rem;
+        flex-direction: row-reverse;
+    }
+    @media (max-width:550px) {
+        width: fit-content;
+        padding-left: 1rem;
+    }
+    img {
+        width: 3.5rem;
+        height: 3.5rem;
+        padding: 0.3rem;
+        object-fit: cover;
+        border-radius: 100%;
+        @media(max-width: 1050px) {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+}
+
+p {
+    color: white;
+    font-size: 1.25rem;
+    font-family: OpenSans;
+    margin: 0;
+    @media(max-width: 1050px) {
+        font-size: 1.1rem;
+    }
+}
+
+.player_clicked {
+    @media (max-width: 550px) {
+        display: unset;
+    }
+}
+
+.player_unclicked {
+    @media (max-width: 550px) {
+        display: none;
+    }
+}
+
+.player_active {
+    width: 16rem;
+    background-color: rgb(28, 108, 8);
+    @media(max-width: 1050px) {
         width: 13rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        border-top-left-radius: 3rem;
-        border-bottom-left-radius: 3rem;
-        background-color: grey;
-        img {
-            width: 3.5rem;
-            height: 3.5rem;
-            padding: 0.3rem;
-            object-fit: cover;
-            border-radius: 100%;
-        }
-        p {
-            color: white;
-            font-size: 1.25rem;
-            font-family: OpenSans;
-            margin: 0;
+    }
+    @media (max-width:550px) {
+        width: fit-content;
+        padding-left: 1.75rem;
+    }
+    img {
+        width: 4.75rem;
+        height: 4.75rem;
+        @media(max-width: 1050px) {
+            width: 3.75rem;
+            height: 3.75rem;
         }
     }
-    
-    .player_active {
-        width: 16rem;
-        background-color: rgb(28, 108, 8);
-        img {
-            width: 4.75rem;
-            height: 4.75rem;
-        }
-    }
+}

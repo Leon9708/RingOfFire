@@ -1,4 +1,4 @@
-<div class="player" [class.player_active]="playerActive">
+<div (click)="clickPlayer()" class="player" [class.player_active]="playerActive">
     <img src="{{ chosenImage }}" alt="">
-    <p>{{name}}</p>
+    <p [ngClass]="clickedPlayer ? 'player_clicked' : 'player_unclicked' ">{{name}}</p>
 </div>

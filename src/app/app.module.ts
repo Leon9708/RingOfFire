@@ -33,6 +33,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { ImgToDialogComponent } from './img-to-dialog/img-to-dialog.component';
+import { ShuffleCardsComponent } from './shuffle-cards/shuffle-cards.component';
+import { CardStackComponent } from './card-stack/card-stack.component';
+import { GameOverComponent } from './game-over/game-over.component';
 
 
 @NgModule({
@@ -47,6 +50,9 @@ import { ImgToDialogComponent } from './img-to-dialog/img-to-dialog.component';
     InfoComponent,
     BottomPopUpComponent,
     ImgToDialogComponent,
+    ShuffleCardsComponent,
+    CardStackComponent,
+    GameOverComponent,
   ],
   imports: [
     BrowserModule,

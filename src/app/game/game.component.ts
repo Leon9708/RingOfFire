@@ -16,7 +16,7 @@ export class GameComponent implements OnInit {
   game: Game = new Game();
   gamesId:any;
   gameObserved$: Observable<any>;
-  Math: Math = Math
+
   
   constructor(
   private route: ActivatedRoute,
@@ -66,20 +66,7 @@ export class GameComponent implements OnInit {
     }
   } */
 
-  takeCard(){
-    if(this.game.clicked) return;
-    this.game.clicked = true;
-    this.game.pickCardAnimation = true
-    this.game.currentCard = this.game.stack.pop();
-   setTimeout(() => {
-    this.game.playedCards.push(this.game.currentCard!) 
-    this.game.pickCardAnimation = false
-    this.game.clicked = false 
-    this.saveGame(); 
-   }, 2000);
-    this.selectPlayer()
-    this.saveGame();
-  }
+
 
   shuffleCards(){
     this.game.StartAnimation = true;
