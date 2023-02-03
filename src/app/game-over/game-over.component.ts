@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Game } from 'src/models/game';
-
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-game-over',
   templateUrl: './game-over.component.html',
@@ -8,11 +8,16 @@ import { Game } from 'src/models/game';
 })
 export class GameOverComponent implements OnInit {
 @Input() game: Game;
-  constructor() { }
+  constructor(private router: Router) { 
 
-  ngOnInit(): void {
-    console.log('ball')
   }
 
+  ngOnInit(): void {
+    
+  }
 
+  backStart(){
+    this.router.navigateByUrl('startscreen')
+  }
+  
 }

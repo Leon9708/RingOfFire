@@ -21,3 +21,4 @@ async enterGame(){
       this.router.navigateByUrl('/game/'+ gameInfo.id)
   }
 }
+  

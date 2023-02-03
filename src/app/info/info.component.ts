@@ -25,31 +25,54 @@ export class InfoComponent {
     { Question: 'What did the fish say when he swam into a wall?', 
     Answer: 'Dam.',
     },
-    { Question: 'I like elephants.', 
-    Answer: 'Everything else is irrelephant.',
+    { Question: 'Why dont Dinosaurs talk?', 
+    Answer: 'Because they are dead',
     },
     { Question: 'Whats red and bad for your teeth?', 
     Answer: 'A brick.',
     },
+    { Question: 'What do you call a Fly with no wings', 
+    Answer: 'A walk',
+    },
     { Question: 'What kind of tea is hard to swallow?', 
     Answer: 'Reality.',
     },
+    { Question: 'What is the most terrifying word in nuclear physics?', 
+    Answer: '“Oops!”',
+    },
+    { Question: 'I dont trust stairs.', 
+    Answer: 'They are always up to something.',
+    },
+    { Question: 'Wife: “How do I look?”', 
+    Answer: 'Husband: “With your eyes.”',
+    },
+    { Question: 'I threw a boomerang a few years ago.', 
+    Answer: 'I now live in constant fear.', 
+    },  { Question: 'Why do you never see pigs hiding in trees? ', 
+    Answer: 'Because they are pretty good at it. ',
+    },  { Question: 'How do you get a squirrel to like you?', 
+    Answer: 'Act like a nut.”',
+    },
+    
 ];
+
+  showedAnswer: string[] = [];
   constructor(private _bottomSheet: MatBottomSheet) {}
  
 
   setInfos(){
-    this.shuffleInfo();
-    if (this.i !== this.infos.length) {
+    if (this.infos.length !== 0) {
+      this.shuffleInfo();
       this.question = this.infos[this.i].Question
       this.answer = this.infos[this.i].Answer
-      this.i++;
-    }else{
-      this.i = 0;
+      this.infos.splice(this.i,1)
+      this.openBottomSheet();
     }
- 
-    this.openBottomSheet();
+    else{
+      alert('out of useful tipps...')
+    }
   }
+
 
   shuffleInfo() {
     for (let i = this.infos.length - 1; i > 0; i--) {

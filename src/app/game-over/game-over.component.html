@@ -1,3 +1,4 @@
-<div class="background_over">
+<div *ngIf="game.stack.length === 0" class="background_over">
     <img src="\assets\img\gameover.png" alt="">
+    <button (click)="backStart()" mat-raised-button>Back to startscreen</button>
 </div>
