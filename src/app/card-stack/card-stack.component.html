@@ -1,21 +1,21 @@
 <!-- stack : newCards -->
 <div class="desktop">
-    <img class="card" *ngFor="let card of [0,1,2,3]; let i = index" [ngStyle]="{'right.px': i * 3, 'bottom.px': i * 3}" [ngClass]="{'d_none': !game?.StartAnimationEnd}" src="/assets/img/cards/card_cover.png" alt="">
+    <img class="card" *ngFor="let card of [0,1,2,3]; let i = index" [ngStyle]="{'right.px': i * 3, 'bottom.px': i * 3}" [ngClass]="{'d_none': !game?.StartAnimationEnd}" src="/ringooffire/assets/img/cards/card_cover.png" alt="">
     <button style="border: none;" [disabled]="game.clicked" [ngClass]="{'d_none': !game?.StartAnimationEnd}" (click)="takeCard()">
-        <img  class="top_card card " src="/assets/img/cards/card_cover.png" alt="">
+        <img  class="top_card card " src="/ringooffire/assets/img/cards/card_cover.png" alt="">
     </button>
     <!-- stack : playedCards -->
-    <img class="played_card card " *ngFor="let playedcard of game?.playedCards; let i = index" src="/assets/img/cards/{{ playedcard }}.png " alt="">
+    <img class="played_card card " *ngFor="let playedcard of game?.playedCards; let i = index" src="/ringooffire/assets/img/cards/{{ playedcard }}.png " alt="">
     <!-- take Card Animation -->
-    <img *ngIf="game?.pickCardAnimation" class="pick_card top_card card " src="/assets/img/cards/{{ game?.currentCard }}.png" alt="">
+    <img *ngIf="game?.pickCardAnimation" class="pick_card top_card card " src="/ringooffire/assets/img/cards/{{ game?.currentCard }}.png" alt="">
 </div>
 <div class="res">
-    <img class="card" *ngFor="let card of [0,1,2,3]; let i = index" [ngStyle]="{'right.px': i * 3, 'bottom.px': i * 3}" [ngClass]="{'d_none': !game?.StartAnimationEnd}" src="/assets/img/cards/card_cover.png" alt="">
+    <img class="card" *ngFor="let card of [0,1,2,3]; let i = index" [ngStyle]="{'right.px': i * 3, 'bottom.px': i * 3}" [ngClass]="{'d_none': !game?.StartAnimationEnd}" src="/ringooffire/assets/img/cards/card_cover.png" alt="">
     <button style="border: none;" [disabled]="game.clicked" [ngClass]="{'d_none': !game?.StartAnimationEnd}" (click)="takeCard()">
-        <img  class="top_card card " src="/assets/img/cards/card_cover.png" alt="">
+        <img  class="top_card card " src="/ringooffire/assets/img/cards/card_cover.png" alt="">
     </button>
     <!-- stack : playedCards -->
-    <img class="played_card_res card " *ngFor="let playedcard of game?.playedCards; let i = index" src="/assets/img/cards/{{ playedcard }}.png " alt="">
+    <img class="played_card_res card " *ngFor="let playedcard of game?.playedCards; let i = index" src="/ringooffire/assets/img/cards/{{ playedcard }}.png " alt="">
     <!-- take Card Animation -->
-    <img *ngIf="game?.pickCardAnimation" class="pick_card_res top_card card " src="/assets/img/cards/{{ game?.currentCard }}.png" alt="">
+    <img *ngIf="game?.pickCardAnimation" class="pick_card_res top_card card " src="/ringooffire/assets/img/cards/{{ game?.currentCard }}.png" alt="">
 </div>
