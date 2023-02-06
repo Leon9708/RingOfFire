@@ -6,6 +6,7 @@ import { StartScreenComponent } from './start-screen/start-screen.component';
 const routes: Routes = [
   { path: 'startscreen', component: StartScreenComponent },
   { path: 'game/:id', component: GameComponent },
+  { path: '', component: StartScreenComponent },
 ];
 
 @NgModule({
