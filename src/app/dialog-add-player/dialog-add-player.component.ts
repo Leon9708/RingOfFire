@@ -7,7 +7,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class DialogAddPlayerComponent {
   name: string = '';
-  images = ['/assets/img/star.png','/assets/img/krabs.png', '/assets/img/spongebob.png','/assets/img/sandy.png','/assets/img/gary.png', '/assets/img/plankton.png']
+  images = ['/ringooffire/assets/img/star.png','/ringooffire/assets/img/krabs.png', '/ringooffire/assets/img/spongebob.png','/ringooffire/assets/img/sandy.png','/ringooffire/assets/img/gary.png', '/ringooffire/assets/img/plankton.png']
   chosenImage:string;
   constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>){
   }
