@@ -24,7 +24,7 @@ export class CardStackComponent implements OnInit {
     this.game.pickCardAnimation = false
     this.game.clicked = false 
     this.gameC.saveGame(); 
-   }, 2500);
+   }, 1950);
     this.gameC.selectPlayer()
     this.gameC.saveGame();
   }
