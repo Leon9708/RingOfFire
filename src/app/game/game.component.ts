@@ -25,7 +25,6 @@ export class GameComponent implements OnInit {
   }
   ngOnInit(): void {
     this.fireservice.getALL().valueChanges().subscribe(data =>{
-      console.log('data',data)
     })
     this.loadGame();
   }
@@ -34,9 +33,7 @@ export class GameComponent implements OnInit {
     this.route.params.subscribe((params) => { 
       this.gamesId = params['id'];
       this.gameObserved$ = this.fireservice.get(this.gamesId).valueChanges();
-      console.log('the id', this.gamesId )
       this.gameObserved$.subscribe((game: any) => {
-          console.log(game);
           this.game.currentPlayer = game.currentPlayer;
           this.game.playedCards = game.playedCards;
           this.game.stack = game.stack;
@@ -55,18 +52,6 @@ export class GameComponent implements OnInit {
   saveGame(){
     return this.fireservice.update(this.gamesId, this.game);  
   }
-  
-
-  
-/*   deleteTutorial(): void {
-    if (this.game.id) {
-      this.fireservice.delete(this.game.id)
-        .then(() => {
-          console.log('delete successfully!');});
-    }
-  } */
-
-
 
   shuffleCards(){
     this.game.StartAnimation = true;
