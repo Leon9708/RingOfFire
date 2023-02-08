@@ -185,4 +185,8 @@
             color: #919191;
         }
     }
+    @media (max-width: 550px) {
+        bottom: unset;
+        top: 1rem;
+    }
 }
