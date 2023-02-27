@@ -8,7 +8,7 @@ import { GameComponent } from '../game/game.component';
   styleUrls: ['./card-stack.component.scss']
 })
 export class CardStackComponent implements OnInit {
-@Input() game: Game;
+  @Input() game: Game;
   constructor(private gameC:GameComponent) { }
 
   ngOnInit(): void {
